@@ -8,8 +8,13 @@
         public static void Main()
         {
             List<Geometry> shapes = new List<Geometry>
-            {
-                
+            {   // Main-metoden behöver inte veta exakt vilken typ varje objekt är (t.ex. Rectangle, Square, eller Circle). 
+                // Varje objekt i listan använder sin egen version av Area() och Name, även om de alla hanteras som Geometry-objekt.
+                // Detta tillåter att olika former kan hanteras på ett enhetligt sätt i koden, samtidigt som de behåller sitt unika beteende.
+                // Polymorfism är som en formskiftare. Även om "Rectangle" verkar vara ett vanligt Geometry-objekt, skiftar den form när det är dags att agera - 
+                // Vid anrop av Area() visar den sig och utför beräkningar specifika för rektanglar – multiplicerar sin bredd och höjd - 
+                // Detta gör det möjligt för Rectangle att vara unik samtidigt som den kan hanteras som en del av en större grupp av Geometry-objekt.
+                // Nya subklasser kan enkelt läggas till utan att ändra existerande kod, så länge de följer den definierade strukturen från basklassen eller gränssnittet
                 new Rectangle(4, 5), //Här anger vi objektens dimensioner
                 new Square(3),
                 new Circle(4)
